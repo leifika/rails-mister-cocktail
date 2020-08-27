@@ -21,8 +21,12 @@ def show
   @cocktail = Cocktail.find(params[:id])
 end
 
+def delete
+  @cocktail = Cocktail.find(params[:id])
+  @cocktail.delete
+  redirect_to "/cocktails"
 end
-
+end
 private
 def cocktail_params
   params.require(:cocktail).permit(:name, :dose, :ingredients)
